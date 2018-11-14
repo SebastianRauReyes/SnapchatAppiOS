@@ -77,22 +77,22 @@
         <!--Snaps View Controller-->
         <scene sceneID="24t-oV-WCu">
             <objects>
-                <viewController id="g9p-sn-FcI" customClass="SnapsViewController" customModule="SnapchatAppiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="g9p-sn-FcI" customClass="SnapsViewController" customModule="SnapchatAppiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jvl-jH-6Jp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenido" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fui-fz-kP8">
-                                <rect key="frame" x="145.5" y="323" width="84" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vLF-r8-tBf">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fui-fz-kP8" firstAttribute="centerY" secondItem="Jvl-jH-6Jp" secondAttribute="centerY" id="3vQ-ul-Dby"/>
-                            <constraint firstItem="fui-fz-kP8" firstAttribute="centerX" secondItem="Jvl-jH-6Jp" secondAttribute="centerX" id="Ol6-ax-wRD"/>
+                            <constraint firstItem="jyB-TL-KTk" firstAttribute="bottom" secondItem="vLF-r8-tBf" secondAttribute="bottom" id="3kW-aN-dhk"/>
+                            <constraint firstItem="vLF-r8-tBf" firstAttribute="top" secondItem="jyB-TL-KTk" secondAttribute="top" id="Khb-h6-yPy"/>
+                            <constraint firstItem="jyB-TL-KTk" firstAttribute="trailing" secondItem="vLF-r8-tBf" secondAttribute="trailing" id="OWA-qm-V1I"/>
+                            <constraint firstItem="vLF-r8-tBf" firstAttribute="leading" secondItem="jyB-TL-KTk" secondAttribute="leading" id="fxj-Xf-oFR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jyB-TL-KTk"/>
                     </view>
@@ -109,10 +109,64 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="vLF-r8-tBf" id="YEM-0e-KTU"/>
+                        <segue destination="oKm-Ds-g5a" kind="show" identifier="versnapsegue" id="OsS-9N-mzM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBO-lK-mJQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1142" y="-378"/>
+        </scene>
+        <!--Ver Snap View Controller-->
+        <scene sceneID="ZtA-Gv-teW">
+            <objects>
+                <viewController id="oKm-Ds-g5a" customClass="VerSnapViewController" customModule="SnapchatAppiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="acy-OJ-haf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Lz-VT-eTy">
+                                <rect key="frame" x="15" y="79" width="345" height="498"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPC-dg-Qyh">
+                                <rect key="frame" x="218" y="594" width="72" height="30"/>
+                                <state key="normal" title="Play Audio"/>
+                                <connections>
+                                    <action selector="playAudioTapped:" destination="oKm-Ds-g5a" eventType="touchUpInside" id="jAp-XJ-B2q"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6b9-3u-VRM">
+                                <rect key="frame" x="77" y="599" width="43" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="43" id="2Y8-ky-O87"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1kU-sD-ewG" firstAttribute="bottom" secondItem="6b9-3u-VRM" secondAttribute="bottom" constant="47" id="1e5-7H-loz"/>
+                            <constraint firstItem="1kU-sD-ewG" firstAttribute="trailing" secondItem="8Lz-VT-eTy" secondAttribute="trailing" constant="15" id="DOt-K8-pth"/>
+                            <constraint firstItem="6b9-3u-VRM" firstAttribute="centerY" secondItem="tPC-dg-Qyh" secondAttribute="centerY" id="OCb-G0-MI0"/>
+                            <constraint firstItem="6b9-3u-VRM" firstAttribute="leading" secondItem="1kU-sD-ewG" secondAttribute="leading" constant="77" id="PFF-0B-PN7"/>
+                            <constraint firstItem="8Lz-VT-eTy" firstAttribute="leading" secondItem="1kU-sD-ewG" secondAttribute="leading" constant="15" id="Pgb-JS-P0I"/>
+                            <constraint firstItem="tPC-dg-Qyh" firstAttribute="leading" secondItem="6b9-3u-VRM" secondAttribute="trailing" constant="98" id="TAS-Xa-p0c"/>
+                            <constraint firstItem="8Lz-VT-eTy" firstAttribute="top" secondItem="1kU-sD-ewG" secondAttribute="top" constant="15" id="WDy-2O-9ie"/>
+                            <constraint firstItem="6b9-3u-VRM" firstAttribute="top" secondItem="8Lz-VT-eTy" secondAttribute="bottom" constant="22" id="hW3-zC-1Dk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1kU-sD-ewG"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="8Lz-VT-eTy" id="hnf-85-TqD"/>
+                        <outlet property="label" destination="6b9-3u-VRM" id="YUr-0w-p77"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IX0-NC-feR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1141.5999999999999" y="343.17841079460271"/>
         </scene>
         <!--Imagen View Controller-->
         <scene sceneID="Yjb-Di-yNj">
@@ -136,8 +190,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAr-fJ-zM8">
+                                <rect key="frame" x="160" y="297" width="55" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Record"/>
+                                <connections>
+                                    <action selector="recordTapped:" destination="ojc-Gi-adv" eventType="touchUpInside" id="CW5-26-KZw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOd-D8-LsH">
+                                <rect key="frame" x="171" y="342" width="32" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playTapped:" destination="ojc-Gi-adv" eventType="touchUpInside" id="kDL-z5-qAM"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTd-3D-Pv7">
-                                <rect key="frame" x="137" y="287" width="100" height="30"/>
+                                <rect key="frame" x="133" y="431" width="108" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Elejir Contacto"/>
                                 <connections>
                                     <action selector="elegirContactoTapped:" destination="ojc-Gi-adv" eventType="touchUpInside" id="0w9-5J-tvK"/>
@@ -146,10 +217,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="oOd-D8-LsH" firstAttribute="centerX" secondItem="Vdg-ui-Gb9" secondAttribute="centerX" id="6AH-Ih-Ehc"/>
                             <constraint firstItem="ZDr-Td-8g6" firstAttribute="top" secondItem="06f-QQ-aIi" secondAttribute="bottom" constant="25" id="8ML-rR-cNl"/>
+                            <constraint firstItem="xAr-fJ-zM8" firstAttribute="centerX" secondItem="Vdg-ui-Gb9" secondAttribute="centerX" id="Dak-mg-KPX"/>
+                            <constraint firstItem="mTd-3D-Pv7" firstAttribute="top" secondItem="oOd-D8-LsH" secondAttribute="bottom" constant="59" id="H2a-Me-f16"/>
+                            <constraint firstItem="xAr-fJ-zM8" firstAttribute="top" secondItem="ZDr-Td-8g6" secondAttribute="bottom" constant="30" id="Kfa-y0-Jg5"/>
                             <constraint firstItem="06f-QQ-aIi" firstAttribute="top" secondItem="zs7-pe-h7h" secondAttribute="top" constant="20" id="MSk-kj-N05"/>
                             <constraint firstItem="mTd-3D-Pv7" firstAttribute="centerX" secondItem="Vdg-ui-Gb9" secondAttribute="centerX" id="PNK-Rf-g0D"/>
-                            <constraint firstItem="mTd-3D-Pv7" firstAttribute="top" secondItem="ZDr-Td-8g6" secondAttribute="bottom" constant="20" id="bXr-o2-uff"/>
+                            <constraint firstItem="oOd-D8-LsH" firstAttribute="top" secondItem="xAr-fJ-zM8" secondAttribute="bottom" constant="12" id="XRn-mb-lO6"/>
                             <constraint firstItem="ZDr-Td-8g6" firstAttribute="centerX" secondItem="Vdg-ui-Gb9" secondAttribute="centerX" id="clM-xd-kfg"/>
                             <constraint firstItem="06f-QQ-aIi" firstAttribute="centerX" secondItem="Vdg-ui-Gb9" secondAttribute="centerX" id="kUk-Gq-LKc"/>
                             <constraint firstItem="ZDr-Td-8g6" firstAttribute="width" secondItem="06f-QQ-aIi" secondAttribute="width" id="kfT-27-ftd"/>
@@ -157,6 +232,7 @@
                         <viewLayoutGuide key="safeArea" id="zs7-pe-h7h"/>
                     </view>
                     <navigationItem key="navigationItem" id="wJT-jQ-crY">
+                        <barButtonItem key="backBarButtonItem" title="Regresar" id="vlW-9r-Fgv"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="UM2-XS-bd0">
                             <connections>
                                 <action selector="camaraTapped:" destination="ojc-Gi-adv" id="ziv-lU-ciT"/>
@@ -167,12 +243,14 @@
                         <outlet property="descripcionTextField" destination="ZDr-Td-8g6" id="hO4-gY-HiI"/>
                         <outlet property="elegirContactoBoton" destination="mTd-3D-Pv7" id="vVS-l9-hUW"/>
                         <outlet property="imageView" destination="06f-QQ-aIi" id="sRx-Cf-87J"/>
+                        <outlet property="playButton" destination="oOd-D8-LsH" id="AeS-wk-euN"/>
+                        <outlet property="recordButton" destination="xAr-fJ-zM8" id="54j-C6-K2s"/>
                         <segue destination="MbE-ul-tTr" kind="show" identifier="seleccionarContactoSegue" id="fWI-6t-7pv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yfu-hM-FQo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1950" y="-378"/>
+            <point key="canvasLocation" x="1949.5999999999999" y="-378.26086956521743"/>
         </scene>
         <!--Elejir Usuario View Controller-->
         <scene sceneID="fwZ-NA-ZX3">
